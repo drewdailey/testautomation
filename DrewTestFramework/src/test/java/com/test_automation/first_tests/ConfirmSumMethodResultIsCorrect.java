@@ -1,12 +1,12 @@
-package com.testautomation;
+package com.test_automation.first_tests;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class confirmSumMethodResultIsCorrect {
+public class ConfirmSumMethodResultIsCorrect {
 
     @Test
-    void testToFailBecauseOfDifferentExpectedResult() {
+    void sumTwoNumbers() {
 
         //create an int that is the sum of the method sum
         int result = sum(140, 100);
