@@ -1,29 +1,21 @@
-package com.testautomation;
+package com.test_automation.first_tests;
 
+import BaseBrowserTest.BaseGithubTest;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 
-import java.util.concurrent.TimeUnit;
+import static com.testautomation.WebDriverBuilder.BASE_URL;
 
-public class confirmGithubRepoLinkMatchesExpectedLink {
+public class ConfirmGithubRepoLinkMatchesExpectedLink extends BaseGithubTest {
 
     @Test
     void confirmGithubRepoLinkMatchesExpectedLink() {
 
         // Arrange
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\Drew\\CodeProjects\\chromedriver\\chromedriver.exe");
-        ChromeOptions options = new ChromeOptions();
-
-        WebDriver driver = new ChromeDriver(options);
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        driver.manage().window().maximize();
         String user = "drewdailey";
-        driver.get("https://github.com/" + user);
+        driver.get(BASE_URL + user);
 
         // Act
         WebElement repoLink = driver.findElement(By.cssSelector("a[href='/drewdailey/testautomation']"));
@@ -38,9 +30,6 @@ public class confirmGithubRepoLinkMatchesExpectedLink {
         // Assert
         String repo = "/drewdailey/testautomation";
         Assertions.assertEquals("https://github.com" + repo, actualURL);
-
-        // Tear down
-        driver.quit();
     }
 
 }
